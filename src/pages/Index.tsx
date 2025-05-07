@@ -77,9 +77,11 @@ const Index = () => {
       <header className="bg-netcore-blue text-white p-4">
         <div className="container mx-auto flex justify-between items-center">
           <div className="flex items-center">
-            <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center mr-2">
-              <span className="text-xl font-bold">N</span>
-            </div>
+            <img 
+              src="/Netcore logo.jpg" 
+              alt="Netcore" 
+              className="h-8 mr-2 bg-white p-1 rounded"
+            />
             <h1 className="text-xl font-bold">Netcore BFSI Solutions</h1>
           </div>
           <div className="text-sm font-medium">
@@ -106,8 +108,22 @@ const Index = () => {
       </main>
 
       <footer className="bg-netcore-blue/5 p-4 border-t border-netcore-blue/10 mt-10">
-        <div className="container mx-auto text-center text-sm text-netcore-blue/70">
-          <p>Transforming customer engagement for BFSI with Netcore's omnichannel solutions</p>
+        <div className="container mx-auto text-center">
+          <p className="text-sm text-netcore-blue/70 mb-3">
+            Transforming customer engagement for BFSI with Netcore's omnichannel solutions
+          </p>
+          <div className="flex justify-center gap-6 items-center flex-wrap">
+            <img 
+              src="/meta-certified-technical-professional.png" 
+              alt="Meta Certified Professional" 
+              className="h-10 object-contain"
+            />
+            <img 
+              src="/NetcorePartneroftheyear.png" 
+              alt="Netcore Partner of the Year" 
+              className="h-10 object-contain"
+            />
+          </div>
         </div>
       </footer>
     </div>

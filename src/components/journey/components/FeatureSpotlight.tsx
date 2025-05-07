@@ -31,7 +31,11 @@ const FeatureSpotlight: React.FC = () => {
   return (
     <div className="mt-6 bg-netcore-teal/10 rounded-lg p-4 border border-netcore-teal/30">
       <h4 className="font-semibold text-netcore-teal flex items-center">
-        <span className="w-6 h-6 rounded-full bg-netcore-teal text-white flex items-center justify-center text-xs mr-2">N</span>
+        <img 
+          src="/Netcore logo.jpg" 
+          alt="Netcore" 
+          className="h-6 w-6 mr-2 bg-white rounded-full p-[2px]"
+        />
         Netcore Feature Spotlight
       </h4>
       

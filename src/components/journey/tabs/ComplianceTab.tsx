@@ -66,8 +66,12 @@ const ComplianceTab: React.FC<ComplianceTabProps> = ({ onComplete }) => {
         
         <div className="bg-netcore-blue/5 p-3 rounded border border-netcore-blue/20">
           <div className="flex items-center">
-            <div className="w-8 h-8 rounded-full bg-netcore-blue/20 flex items-center justify-center mr-2">
-              <span className="text-xs font-bold text-netcore-blue">i</span>
+            <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center mr-2">
+              <img 
+                src="/Netcore logo.jpg" 
+                alt="Netcore" 
+                className="h-6 w-6 object-contain rounded-full"
+              />
             </div>
             <span className="text-sm">Auto Stop is enabled for this campaign</span>
           </div>

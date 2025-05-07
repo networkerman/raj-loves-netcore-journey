@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -11,6 +10,32 @@ interface JourneyIntroProps {
 const JourneyIntro: React.FC<JourneyIntroProps> = ({ onStart }) => {
   return (
     <div className="w-full max-w-4xl mx-auto py-8 px-4 animate-fade-in">
+      <div className="flex justify-center gap-6 mb-6 flex-wrap">
+        <div className="flex items-center gap-4 bg-white p-3 rounded-lg shadow-sm border border-gray-100">
+          <img 
+            src="/Netcore logo.jpg" 
+            alt="Netcore" 
+            className="h-12 object-contain"
+          />
+          <div className="border-l border-gray-200 h-12 mx-1"></div>
+          <div className="flex flex-col">
+            <span className="text-xs text-gray-500">Partnering with</span>
+            <div className="flex gap-3">
+              <img 
+                src="/meta-certified-technical-professional.png" 
+                alt="Meta Certified" 
+                className="h-8 object-contain"
+              />
+              <img 
+                src="/NetcorePartneroftheyear.png" 
+                alt="Partner of the Year" 
+                className="h-8 object-contain"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      
       <Card className="border-2 border-netcore-teal/20 shadow-lg">
         <CardHeader className="text-center">
           <CardTitle className="text-3xl md:text-4xl font-bold text-netcore-blue">Raj's Journey with Netcore</CardTitle>
