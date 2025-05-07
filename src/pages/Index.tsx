@@ -11,6 +11,8 @@ import Support from '@/components/journey/Support';
 import MarketingTools from '@/components/journey/MarketingTools';
 import FuturePossibilities from '@/components/journey/FuturePossibilities';
 import JourneySummary from '@/components/JourneySummary';
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
 const Index = () => {
   const [journeyStarted, setJourneyStarted] = useState(false);
@@ -112,18 +114,65 @@ const Index = () => {
           <p className="text-sm text-netcore-blue/70 mb-3">
             Transforming customer engagement for BFSI with Netcore's omnichannel solutions
           </p>
-          <div className="flex justify-center gap-6 items-center flex-wrap">
-            <img 
-              src="/meta-certified-technical-professional.png" 
-              alt="Meta Certified Professional" 
-              className="h-10 object-contain"
-            />
-            <img 
-              src="/NetcorePartneroftheyear.png" 
-              alt="Netcore Partner of the Year" 
-              className="h-10 object-contain"
-            />
-          </div>
+          <TooltipProvider>
+            <div className="flex justify-center gap-6 items-center flex-wrap">
+              <Dialog>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <DialogTrigger asChild>
+                      <img 
+                        src="/meta-certified-technical-professional.png" 
+                        alt="Meta Certified Professional" 
+                        className="h-10 object-contain cursor-pointer hover:opacity-80 transition-opacity"
+                      />
+                    </DialogTrigger>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Click to view Meta certification</p>
+                  </TooltipContent>
+                </Tooltip>
+                <DialogContent className="sm:max-w-md flex flex-col items-center">
+                  <div className="text-center mb-4">
+                    <h3 className="text-lg font-semibold">Meta Certified Technical Professional</h3>
+                    <p className="text-sm text-gray-500">Official Meta Business Partner certification</p>
+                  </div>
+                  <img 
+                    src="/meta-certified-technical-professional.png" 
+                    alt="Meta Certified Professional" 
+                    className="max-h-[60vh] w-auto object-contain"
+                  />
+                </DialogContent>
+              </Dialog>
+              
+              <Dialog>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <DialogTrigger asChild>
+                      <img 
+                        src="/NetcorePartneroftheyear.png" 
+                        alt="Netcore Partner of the Year" 
+                        className="h-10 object-contain cursor-pointer hover:opacity-80 transition-opacity"
+                      />
+                    </DialogTrigger>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Click to view Google partnership award</p>
+                  </TooltipContent>
+                </Tooltip>
+                <DialogContent className="sm:max-w-md flex flex-col items-center">
+                  <div className="text-center mb-4">
+                    <h3 className="text-lg font-semibold">Google Partner of the Year</h3>
+                    <p className="text-sm text-gray-500">Official Google Business Partner recognition</p>
+                  </div>
+                  <img 
+                    src="/NetcorePartneroftheyear.png" 
+                    alt="Netcore Partner of the Year" 
+                    className="max-h-[60vh] w-auto object-contain"
+                  />
+                </DialogContent>
+              </Dialog>
+            </div>
+          </TooltipProvider>
         </div>
       </footer>
     </div>

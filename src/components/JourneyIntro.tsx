@@ -1,7 +1,10 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { ArrowRight } from 'lucide-react';
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
 interface JourneyIntroProps {
   onStart: () => void;
@@ -13,25 +16,72 @@ const JourneyIntro: React.FC<JourneyIntroProps> = ({ onStart }) => {
       <div className="flex justify-center gap-6 mb-6 flex-wrap">
         <div className="flex items-center gap-4 bg-white p-3 rounded-lg shadow-sm border border-gray-100">
           <img 
-            src="/Netcore logo.jpg" 
+            src="/netcore-logo.jpg" 
             alt="Netcore" 
             className="h-12 object-contain"
           />
           <div className="border-l border-gray-200 h-12 mx-1"></div>
           <div className="flex flex-col">
             <span className="text-xs text-gray-500">Partnering with</span>
-            <div className="flex gap-3">
-              <img 
-                src="/meta-certified-technical-professional.png" 
-                alt="Meta Certified" 
-                className="h-8 object-contain"
-              />
-              <img 
-                src="/NetcorePartneroftheyear.png" 
-                alt="Partner of the Year" 
-                className="h-8 object-contain"
-              />
-            </div>
+            <TooltipProvider>
+              <div className="flex gap-3">
+                <Dialog>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <DialogTrigger asChild>
+                        <img 
+                          src="/meta-certified-technical-professional.png" 
+                          alt="Meta Certified" 
+                          className="h-8 object-contain cursor-pointer hover:opacity-80 transition-opacity"
+                        />
+                      </DialogTrigger>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>Click to view Meta certification</p>
+                    </TooltipContent>
+                  </Tooltip>
+                  <DialogContent className="sm:max-w-md flex flex-col items-center">
+                    <div className="text-center mb-4">
+                      <h3 className="text-lg font-semibold">Meta Certified Technical Professional</h3>
+                      <p className="text-sm text-gray-500">Official Meta Business Partner certification</p>
+                    </div>
+                    <img 
+                      src="/meta-certified-technical-professional.png" 
+                      alt="Meta Certified Professional" 
+                      className="max-h-[60vh] w-auto object-contain"
+                    />
+                  </DialogContent>
+                </Dialog>
+                
+                <Dialog>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <DialogTrigger asChild>
+                        <img 
+                          src="/NetcorePartneroftheyear.png" 
+                          alt="Partner of the Year" 
+                          className="h-8 object-contain cursor-pointer hover:opacity-80 transition-opacity"
+                        />
+                      </DialogTrigger>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>Click to view Google partnership award</p>
+                    </TooltipContent>
+                  </Tooltip>
+                  <DialogContent className="sm:max-w-md flex flex-col items-center">
+                    <div className="text-center mb-4">
+                      <h3 className="text-lg font-semibold">Google Partner of the Year</h3>
+                      <p className="text-sm text-gray-500">Official Google Business Partner recognition</p>
+                    </div>
+                    <img 
+                      src="/NetcorePartneroftheyear.png" 
+                      alt="Netcore Partner of the Year" 
+                      className="max-h-[60vh] w-auto object-contain"
+                    />
+                  </DialogContent>
+                </Dialog>
+              </div>
+            </TooltipProvider>
           </div>
         </div>
       </div>
