@@ -68,7 +68,7 @@ const ComplianceTab: React.FC<ComplianceTabProps> = ({ onComplete }) => {
           <div className="flex items-center">
             <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center mr-2">
               <img 
-                src="/Netcore logo.jpg" 
+                src="/netcore-logo.jpg" 
                 alt="Netcore" 
                 className="h-6 w-6 object-contain rounded-full"
               />

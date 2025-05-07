@@ -27,7 +27,7 @@ const MarketingCard: React.FC<MarketingCardProps> = ({
         ) : (
           <div className="w-10 h-10 rounded-full bg-white/90 flex items-center justify-center mr-3">
             <img 
-              src="/Netcore logo.jpg" 
+              src="/netcore-logo.jpg" 
               alt="Netcore" 
               className="h-8 w-8 object-contain rounded-full"
             />

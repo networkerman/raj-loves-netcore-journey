@@ -32,7 +32,7 @@ const FeatureSpotlight: React.FC = () => {
     <div className="mt-6 bg-netcore-teal/10 rounded-lg p-4 border border-netcore-teal/30">
       <h4 className="font-semibold text-netcore-teal flex items-center">
         <img 
-          src="/Netcore logo.jpg" 
+          src="/netcore-logo.jpg" 
           alt="Netcore" 
           className="h-6 w-6 mr-2 bg-white rounded-full p-[2px]"
         />

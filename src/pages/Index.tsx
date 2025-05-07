@@ -78,7 +78,7 @@ const Index = () => {
         <div className="container mx-auto flex justify-between items-center">
           <div className="flex items-center">
             <img 
-              src="/Netcore logo.jpg" 
+              src="/netcore-logo.jpg" 
               alt="Netcore" 
               className="h-8 mr-2 bg-white p-1 rounded"
             />
