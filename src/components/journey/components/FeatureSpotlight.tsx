@@ -1,5 +1,31 @@
 
 import React from 'react';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { Info } from 'lucide-react';
+
+interface FeatureItem {
+  title: string;
+  description: string;
+  tooltip?: string;
+}
+
+const featureItems: FeatureItem[] = [
+  {
+    title: 'Multi CTA and QR Support',
+    description: 'Enhances message templates with multiple call-to-action buttons and QR codes, increasing engagement options for customers.',
+    tooltip: 'Increase conversion rates by 25% with multiple CTAs in a single message'
+  },
+  {
+    title: 'Auto Stop on Recategorization',
+    description: 'Automatically pauses campaigns if messaging platforms change the template category, ensuring continued compliance.',
+    tooltip: 'Prevent compliance issues with automatic campaign suspension'
+  },
+  {
+    title: 'Better SMS Dashboards, Campaigns, RBAC',
+    description: 'Provides comprehensive analytics, campaign management tools, and role-based access control for marketing teams.',
+    tooltip: 'Get deeper insights and control with advanced analytics tools'
+  }
+];
 
 const FeatureSpotlight: React.FC = () => {
   return (
@@ -8,15 +34,32 @@ const FeatureSpotlight: React.FC = () => {
         <span className="w-6 h-6 rounded-full bg-netcore-teal text-white flex items-center justify-center text-xs mr-2">N</span>
         Netcore Feature Spotlight
       </h4>
-      <p className="mt-2 text-sm">
-        <strong>Multi CTA and QR Support:</strong> Enhances message templates with multiple call-to-action buttons and QR codes, increasing engagement options for customers.
-      </p>
-      <p className="mt-2 text-sm">
-        <strong>Auto Stop on Recategorization:</strong> Automatically pauses campaigns if messaging platforms change the template category, ensuring continued compliance.
-      </p>
-      <p className="mt-2 text-sm">
-        <strong>Better SMS Dashboards, Campaigns, RBAC:</strong> Provides comprehensive analytics, campaign management tools, and role-based access control for marketing teams.
-      </p>
+      
+      <div className="space-y-3 mt-3">
+        {featureItems.map((item, index) => (
+          <div key={index} className="flex">
+            <div className="flex-1">
+              <p className="text-sm">
+                <strong>{item.title}:</strong> {item.description}
+              </p>
+            </div>
+            {item.tooltip && (
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <button className="ml-2 text-netcore-teal/70 hover:text-netcore-teal">
+                      <Info className="h-4 w-4" />
+                    </button>
+                  </TooltipTrigger>
+                  <TooltipContent className="bg-netcore-teal text-white border-netcore-teal">
+                    <p>{item.tooltip}</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            )}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
