@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -93,7 +92,7 @@ const MarketingTools: React.FC<MarketingToolsProps> = ({ onComplete }) => {
                     <div className="p-3">
                       <div className="bg-white border border-gray-200 rounded-lg p-3 mb-3">
                         <p className="text-sm mb-3">
-                          Hi {{1}}, explore mutual funds and two-wheeler insurance tailored for you! Complete your credit card application now.
+                          Hi {"{1}"}, explore mutual funds and two-wheeler insurance tailored for you! Complete your credit card application now.
                         </p>
                         <div className="flex flex-wrap gap-2">
                           <div className="bg-netcore-blue/10 text-netcore-blue text-xs py-1 px-2 rounded border border-netcore-blue/30">
@@ -129,7 +128,7 @@ const MarketingTools: React.FC<MarketingToolsProps> = ({ onComplete }) => {
                       <label className="text-xs text-gray-500">Filters Applied</label>
                       <div className="bg-white border border-gray-200 rounded p-2 mt-1 flex flex-wrap gap-1">
                         <span className="bg-gray-100 text-xs py-0.5 px-1.5 rounded">Age: 25-35</span>
-                        <span className="bg-gray-100 text-xs py-0.5 px-1.5 rounded">Income: >15LPA</span>
+                        <span className="bg-gray-100 text-xs py-0.5 px-1.5 rounded">Income: {">"} 15LPA</span>
                         <span className="bg-gray-100 text-xs py-0.5 px-1.5 rounded">+2 more</span>
                       </div>
                     </div>
