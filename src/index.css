@@ -1,10 +1,11 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 210 50% 98%;
     --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
@@ -13,16 +14,16 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 210 100% 25%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 210 40% 96.1%;
+    --secondary: 196 100% 42%;
     --secondary-foreground: 222.2 47.4% 11.2%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
+    --accent: 16 100% 60%;
     --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
@@ -30,63 +31,9 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 196 100% 42%;
 
     --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 
@@ -97,5 +44,104 @@
 
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .chat-bubble {
+    @apply relative p-4 rounded-lg max-w-[80%] mb-2;
+  }
+  
+  .chat-bubble-user {
+    @apply bg-netcore-teal text-white ml-auto rounded-tr-none;
+  }
+  
+  .chat-bubble-bot {
+    @apply bg-white border border-gray-200 text-gray-800 mr-auto rounded-tl-none;
+  }
+
+  .chat-bubble-rcs {
+    @apply bg-netcore-rcs/10 border border-netcore-rcs/20 text-gray-800 mr-auto rounded-tl-none;
+  }
+
+  .chat-bubble-sms {
+    @apply bg-netcore-sms/10 border border-netcore-sms/20 text-gray-800 mr-auto rounded-tl-none;
+  }
+
+  .journey-progress {
+    @apply flex items-center justify-center gap-2 mb-10 w-full overflow-x-auto py-2;
+  }
+
+  .journey-step {
+    @apply flex flex-col items-center cursor-pointer;
+  }
+
+  .journey-dot {
+    @apply w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-all;
+  }
+
+  .journey-dot-active {
+    @apply bg-netcore-teal text-white;
+  }
+
+  .journey-dot-completed {
+    @apply bg-netcore-green text-white;
+  }
+
+  .journey-dot-upcoming {
+    @apply bg-gray-200 text-gray-400;
+  }
+
+  .journey-line {
+    @apply h-[2px] w-16 mt-4 transition-all;
+  }
+
+  .journey-line-active {
+    @apply bg-netcore-teal;
+  }
+
+  .journey-line-completed {
+    @apply bg-netcore-green;
+  }
+
+  .journey-line-upcoming {
+    @apply bg-gray-200;
+  }
+
+  .whatsapp-header {
+    @apply flex items-center p-3 bg-netcore-whatsapp text-white rounded-t-lg;
+  }
+
+  .rcs-header {
+    @apply flex items-center p-3 bg-netcore-rcs text-white rounded-t-lg;
+  }
+
+  .sms-header {
+    @apply flex items-center p-3 bg-netcore-sms text-white rounded-t-lg;
+  }
+
+  .chat-input {
+    @apply flex items-center gap-2 p-3 bg-gray-50 border-t border-gray-200 rounded-b-lg;
+  }
+
+  .animation-delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .animation-delay-500 {
+    animation-delay: 500ms;
   }
 }
