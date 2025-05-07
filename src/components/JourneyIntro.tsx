@@ -57,7 +57,7 @@ const JourneyIntro: React.FC<JourneyIntroProps> = ({ onStart }) => {
               <div className="md:w-1/3 flex justify-center items-center">
                 <div className="w-full max-w-[220px] aspect-square rounded-full overflow-hidden border-4 border-netcore-teal/20">
                   <img 
-                    src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80" 
+                    src="/lovable-uploads/5ab29b24-1967-42b8-b477-6f39a45e6884.png" 
                     alt="Raj" 
                     className="w-full h-full object-cover"
                   />
