@@ -1,9 +1,9 @@
-
 import React, { useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Check, ArrowRight } from 'lucide-react';
+import { toast } from "@/hooks/use-toast";
 
 interface ConversionProps {
   onComplete: () => void;
@@ -11,12 +11,33 @@ interface ConversionProps {
 
 const Conversion: React.FC<ConversionProps> = ({ onComplete }) => {
   const [step, setStep] = useState(1);
+  const [employmentType, setEmploymentType] = useState<'salaried' | 'self-employed' | null>('salaried');
+  const [showSelfEmployedMessage, setShowSelfEmployedMessage] = useState(false);
   
   const handleNext = () => {
+    if (employmentType === 'self-employed') {
+      setShowSelfEmployedMessage(true);
+      toast({
+        title: "Not Available",
+        description: "This credit card is not available for self-employed individuals.",
+        variant: "destructive",
+      });
+      return;
+    }
+    
     if (step < 3) {
       setStep(step + 1);
     } else {
       onComplete();
+    }
+  };
+
+  const handleEmploymentTypeChange = (type: 'salaried' | 'self-employed') => {
+    setEmploymentType(type);
+    if (type === 'self-employed') {
+      setShowSelfEmployedMessage(true);
+    } else {
+      setShowSelfEmployedMessage(false);
     }
   };
 
@@ -64,18 +85,46 @@ const Conversion: React.FC<ConversionProps> = ({ onComplete }) => {
                     <div className="space-y-2">
                       <label className="text-sm font-medium">Employment Type</label>
                       <div className="grid grid-cols-2 gap-2">
-                        <Button variant="outline" className="bg-netcore-whatsapp/20 border-netcore-whatsapp text-netcore-whatsapp justify-start">
-                          <Check className="h-4 w-4 mr-2" />
+                        <Button 
+                          variant="outline" 
+                          className={`justify-start ${employmentType === 'salaried' ? 'bg-netcore-whatsapp/20 border-netcore-whatsapp text-netcore-whatsapp' : ''}`}
+                          onClick={() => handleEmploymentTypeChange('salaried')}
+                        >
+                          {employmentType === 'salaried' && <Check className="h-4 w-4 mr-2" />}
                           Salaried
                         </Button>
-                        <Button variant="outline" className="justify-start">
+                        <Button 
+                          variant="outline" 
+                          className={`justify-start ${employmentType === 'self-employed' ? 'bg-netcore-whatsapp/20 border-netcore-whatsapp text-netcore-whatsapp' : ''}`}
+                          onClick={() => handleEmploymentTypeChange('self-employed')}
+                        >
+                          {employmentType === 'self-employed' && <Check className="h-4 w-4 mr-2" />}
                           Self-employed
                         </Button>
                       </div>
                     </div>
+                    
+                    {showSelfEmployedMessage && (
+                      <div className="p-3 bg-red-50 border border-red-200 rounded-md text-red-700 text-sm">
+                        <p className="font-medium">Not Available</p>
+                        <p>This credit card is not available for self-employed individuals.</p>
+                        <div className="mt-2">
+                          <Button 
+                            variant="outline"
+                            size="sm"
+                            className="text-xs border-red-300 text-red-600 hover:bg-red-50"
+                            onClick={() => handleEmploymentTypeChange('salaried')}
+                          >
+                            Switch to Salaried
+                          </Button>
+                        </div>
+                      </div>
+                    )}
+                    
                     <Button 
                       onClick={handleNext} 
                       className="w-full bg-netcore-whatsapp hover:bg-netcore-whatsapp/90"
+                      disabled={employmentType === 'self-employed'}
                     >
                       Submit Details
                     </Button>
@@ -188,7 +237,8 @@ const Conversion: React.FC<ConversionProps> = ({ onComplete }) => {
                 {step < 3 ? (
                   <Button 
                     size="sm" 
-                    className="bg-netcore-whatsapp hover:bg-netcore-whatsapp/90"
+                    disabled={employmentType === 'self-employed'}
+                    className={`${employmentType !== 'self-employed' ? 'bg-netcore-whatsapp hover:bg-netcore-whatsapp/90' : 'bg-gray-300'}`}
                     onClick={handleNext}
                   >
                     Continue <ArrowRight className="ml-1 h-3 w-3" />

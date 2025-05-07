@@ -3,6 +3,7 @@ import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Check } from 'lucide-react';
+import { ProgressBar } from '@/components/marketing-ui';
 
 interface RetentionProps {
   onComplete: () => void;
@@ -63,33 +64,32 @@ const Retention: React.FC<RetentionProps> = ({ onComplete }) => {
                 <h5 className="text-sm font-medium mb-2">Spending Breakdown</h5>
                 <div className="bg-white p-3 rounded-lg border border-gray-200 mb-4">
                   <div className="space-y-3">
-                    <div>
-                      <div className="flex justify-between items-center text-sm mb-1">
-                        <span className="text-gray-600">Dining</span>
-                        <span className="font-medium">₹7,250</span>
-                      </div>
-                      <div className="h-2 bg-gray-200 rounded-full">
-                        <div className="h-2 bg-netcore-teal rounded-full w-[40%]"></div>
-                      </div>
-                    </div>
-                    <div>
-                      <div className="flex justify-between items-center text-sm mb-1">
-                        <span className="text-gray-600">Travel</span>
-                        <span className="font-medium">₹6,180</span>
-                      </div>
-                      <div className="h-2 bg-gray-200 rounded-full">
-                        <div className="h-2 bg-netcore-rcs rounded-full w-[35%]"></div>
-                      </div>
-                    </div>
-                    <div>
-                      <div className="flex justify-between items-center text-sm mb-1">
-                        <span className="text-gray-600">Shopping</span>
-                        <span className="font-medium">₹4,600</span>
-                      </div>
-                      <div className="h-2 bg-gray-200 rounded-full">
-                        <div className="h-2 bg-netcore-orange rounded-full w-[25%]"></div>
-                      </div>
-                    </div>
+                    <ProgressBar 
+                      label="Dining" 
+                      percentage={40} 
+                      color="bg-netcore-teal" 
+                      showValue={true}
+                      className="mb-2"
+                    />
+                    <div className="text-right text-xs text-gray-600">₹7,250</div>
+                    
+                    <ProgressBar 
+                      label="Travel" 
+                      percentage={35} 
+                      color="bg-netcore-rcs" 
+                      showValue={true}
+                      className="mb-2"
+                    />
+                    <div className="text-right text-xs text-gray-600">₹6,180</div>
+                    
+                    <ProgressBar 
+                      label="Shopping" 
+                      percentage={25} 
+                      color="bg-netcore-orange" 
+                      showValue={true}
+                      className="mb-2"
+                    />
+                    <div className="text-right text-xs text-gray-600">₹4,600</div>
                   </div>
                 </div>
                 
@@ -142,6 +142,9 @@ const Retention: React.FC<RetentionProps> = ({ onComplete }) => {
             </p>
             <p className="mt-2 text-sm">
               <strong>Rich Media Support:</strong> Enhances communication with visual elements like charts and graphs that make complex financial information more digestible and engaging for users.
+            </p>
+            <p className="mt-2 text-sm">
+              <strong>RCS Web View:</strong> Supports richer engagement formats directly within the messaging interface, enabling interactive financial dashboards, statements, and customer service experiences without leaving the RCS conversation.
             </p>
           </div>
         </div>

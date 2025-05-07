@@ -20,31 +20,48 @@ const JourneyIntro: React.FC<JourneyIntroProps> = ({ onStart }) => {
         </CardHeader>
         <CardContent className="space-y-6">
           <div className="bg-netcore-light rounded-lg p-6 border border-gray-200">
-            <h3 className="font-semibold text-xl mb-4 text-netcore-blue">Meet Raj</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <p className="flex items-center gap-2">
-                  <span className="bg-netcore-teal/10 text-netcore-teal px-2 py-1 rounded text-sm font-medium">Age</span>
-                  <span>27</span>
-                </p>
-                <p className="flex items-center gap-2">
-                  <span className="bg-netcore-teal/10 text-netcore-teal px-2 py-1 rounded text-sm font-medium">Occupation</span>
-                  <span>Software Engineer, 20 LPA</span>
-                </p>
-                <p className="flex items-center gap-2">
-                  <span className="bg-netcore-teal/10 text-netcore-teal px-2 py-1 rounded text-sm font-medium">Life Stage</span>
-                  <span>Recently married, relocated to Mumbai</span>
-                </p>
+            <div className="flex flex-col md:flex-row gap-6">
+              <div className="flex-1">
+                <h3 className="font-semibold text-xl mb-4 text-netcore-blue">Meet Raj</h3>
+                <div className="space-y-2">
+                  <p className="flex items-center gap-2">
+                    <span className="bg-netcore-teal/10 text-netcore-teal px-2 py-1 rounded text-sm font-medium">Age</span>
+                    <span>27</span>
+                  </p>
+                  <p className="flex items-center gap-2">
+                    <span className="bg-netcore-teal/10 text-netcore-teal px-2 py-1 rounded text-sm font-medium">Occupation</span>
+                    <span>Software Engineer, 20 LPA</span>
+                  </p>
+                  <p className="flex items-center gap-2">
+                    <span className="bg-netcore-teal/10 text-netcore-teal px-2 py-1 rounded text-sm font-medium">Life Stage</span>
+                    <span>Recently married, relocated to Mumbai</span>
+                  </p>
+                  <p className="flex items-center gap-2">
+                    <span className="bg-netcore-orange/10 text-netcore-orange px-2 py-1 rounded text-sm font-medium">Goals</span>
+                    <span>Dining, travel, and financial planning</span>
+                  </p>
+                  <p className="flex items-center gap-2">
+                    <span className="bg-netcore-orange/10 text-netcore-orange px-2 py-1 rounded text-sm font-medium">Tech-Savvy</span>
+                    <span>Adept with WhatsApp and RCS</span>
+                  </p>
+                  <p className="flex items-center gap-2">
+                    <span className="bg-netcore-blue/10 text-netcore-blue px-2 py-1 rounded text-sm font-medium">Platforms</span>
+                    <span>WhatsApp, RCS, Instagram, Facebook</span>
+                  </p>
+                  <p className="flex items-center gap-2">
+                    <span className="bg-netcore-blue/10 text-netcore-blue px-2 py-1 rounded text-sm font-medium">Device</span>
+                    <span>Android user</span>
+                  </p>
+                </div>
               </div>
-              <div className="space-y-2">
-                <p className="flex items-center gap-2">
-                  <span className="bg-netcore-orange/10 text-netcore-orange px-2 py-1 rounded text-sm font-medium">Goals</span>
-                  <span>Dining, travel, and financial planning</span>
-                </p>
-                <p className="flex items-center gap-2">
-                  <span className="bg-netcore-orange/10 text-netcore-orange px-2 py-1 rounded text-sm font-medium">Tech-Savvy</span>
-                  <span>Adept with WhatsApp and RCS</span>
-                </p>
+              <div className="md:w-1/3 flex justify-center items-center">
+                <div className="w-full max-w-[220px] aspect-square rounded-full overflow-hidden border-4 border-netcore-teal/20">
+                  <img 
+                    src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80" 
+                    alt="Raj" 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
             </div>
           </div>

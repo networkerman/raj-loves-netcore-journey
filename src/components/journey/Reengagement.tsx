@@ -10,12 +10,20 @@ interface ReengagementProps {
 
 const Reengagement: React.FC<ReengagementProps> = ({ onComplete }) => {
   const [showRcs, setShowRcs] = useState(false);
+  const [userInteracted, setUserInteracted] = useState(false);
   
   const handleSmsClick = () => {
     setShowRcs(true);
-    setTimeout(() => {
+  };
+
+  const handleRcsButtonClick = () => {
+    setUserInteracted(true);
+  };
+
+  const handleContinueToNextStep = () => {
+    if (userInteracted) {
       onComplete();
-    }, 2000);
+    }
   };
 
   return (
@@ -65,35 +73,37 @@ const Reengagement: React.FC<ReengagementProps> = ({ onComplete }) => {
               </div>
             </Card>
             
-            <Card className="border border-gray-300 flex flex-col">
-              <div className="sms-header mb-auto">
-                <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center mr-3">
-                  <span className="text-lg font-bold">B</span>
+            {!showRcs && (
+              <Card className="border border-gray-300 flex flex-col">
+                <div className="sms-header mb-auto">
+                  <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center mr-3">
+                    <span className="text-lg font-bold">B</span>
+                  </div>
+                  <div>
+                    <h4 className="font-medium">Bajaj Finserv</h4>
+                    <p className="text-xs opacity-80">SMS</p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="font-medium">Bajaj Finserv</h4>
-                  <p className="text-xs opacity-80">SMS</p>
+                
+                <div className="p-4 flex-grow">
+                  <div className="chat-bubble chat-bubble-sms">
+                    <p className="font-medium mb-1">Bajaj Finserv</p>
+                    <p className="text-sm">
+                      Raj, explore mutual funds and two-wheeler insurance tailored for you! Complete your credit card application: https://baja.j/card123
+                    </p>
+                  </div>
                 </div>
-              </div>
-              
-              <div className="p-4 flex-grow">
-                <div className="chat-bubble chat-bubble-sms">
-                  <p className="font-medium mb-1">Bajaj Finserv</p>
-                  <p className="text-sm">
-                    Raj, explore mutual funds and two-wheeler insurance tailored for you! Complete your credit card application: https://baja.j/card123
-                  </p>
+                
+                <div className="p-4 border-t border-gray-200 bg-gray-50">
+                  <Button 
+                    onClick={handleSmsClick} 
+                    className="w-full bg-netcore-blue hover:bg-netcore-blue/90"
+                  >
+                    Tap to view enhanced message <ArrowRight className="ml-1 h-4 w-4" />
+                  </Button>
                 </div>
-              </div>
-              
-              <div className="p-4 border-t border-gray-200 bg-gray-50">
-                <Button 
-                  onClick={handleSmsClick} 
-                  className="w-full bg-netcore-blue hover:bg-netcore-blue/90"
-                >
-                  Tap to view enhanced message <ArrowRight className="ml-1 h-4 w-4" />
-                </Button>
-              </div>
-            </Card>
+              </Card>
+            )}
           </div>
           
           {showRcs && (
@@ -127,7 +137,9 @@ const Reengagement: React.FC<ReengagementProps> = ({ onComplete }) => {
                   <div className="flex flex-wrap gap-2">
                     <Button 
                       size="sm" 
-                      onClick={() => onComplete()}
+                      onClick={() => {
+                        handleRcsButtonClick();
+                      }}
                       className="bg-netcore-rcs hover:bg-netcore-rcs/90"
                     >
                       Complete Card Application
@@ -135,6 +147,7 @@ const Reengagement: React.FC<ReengagementProps> = ({ onComplete }) => {
                     <Button 
                       size="sm" 
                       variant="outline"
+                      onClick={handleRcsButtonClick}
                       className="border-netcore-rcs text-netcore-rcs hover:bg-netcore-rcs/10"
                     >
                       Explore Mutual Funds
@@ -142,11 +155,28 @@ const Reengagement: React.FC<ReengagementProps> = ({ onComplete }) => {
                     <Button 
                       size="sm" 
                       variant="outline"
+                      onClick={handleRcsButtonClick}
                       className="border-netcore-rcs text-netcore-rcs hover:bg-netcore-rcs/10"
                     >
                       Two-Wheeler Insurance
                     </Button>
                   </div>
+                </div>
+              </div>
+              
+              <div className="p-3 border-t border-gray-200 bg-white">
+                <div className="flex justify-between items-center">
+                  <div className="text-xs text-gray-500">
+                    {userInteracted ? "Ready to continue" : "Please select an option"}
+                  </div>
+                  <Button 
+                    size="sm"
+                    disabled={!userInteracted}
+                    onClick={handleContinueToNextStep}
+                    className={`${userInteracted ? 'bg-netcore-rcs hover:bg-netcore-rcs/90' : 'bg-gray-300'}`}
+                  >
+                    Continue <ArrowRight className="ml-1 h-3 w-3" />
+                  </Button>
                 </div>
               </div>
             </Card>
