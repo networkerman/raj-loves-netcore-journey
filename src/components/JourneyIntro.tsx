@@ -59,7 +59,7 @@ const JourneyIntro: React.FC<JourneyIntroProps> = ({ onStart }) => {
                   <img 
                     src="/lovable-uploads/5ab29b24-1967-42b8-b477-6f39a45e6884.png" 
                     alt="Raj" 
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-top transform scale-90"
                   />
                 </div>
               </div>
